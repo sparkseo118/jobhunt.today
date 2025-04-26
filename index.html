@@ -1,12 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Job Hunt Today</title>
-    <meta name="description" content="Welcome to my website! Explore everything we offer.">
-    <link rel="stylesheet" href="style.css"> <!-- If you have a CSS file -->
-</head>
+<div id="header"></div>
 <body>
     <header>
         <h1>Job Hunt Today</h1>
@@ -35,9 +29,21 @@
             <p>Email us at <a href="mailto:info@jobhunt.today">info@jobhunt.today</a></p>
         </section>
     </main>
-
-    <footer>
-        <p>© 2025 jobhunt.today. All rights reserved.</p>
-    </footer>
+<div id="footer"></div>
 </body>
 </html>
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+    fetch("partials/header.html")
+        .then(response => response.text())
+        .then(data => {
+            document.getElementById("header").innerHTML = data;
+        });
+
+    fetch("partials/footer.html")
+        .then(response => response.text())
+        .then(data => {
+            document.getElementById("footer").innerHTML = data;
+        });
+});
+</script>
